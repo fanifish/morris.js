@@ -280,6 +280,7 @@ class Morris.Grid extends Morris.EventEmitter
         parseFloat(y.toFixed(1 - smag))
     else
       grid = (y for y in [gmin..gmax] by step)
+    
     grid
 
   _calc: ->
@@ -325,9 +326,9 @@ class Morris.Grid extends Morris.EventEmitter
         @dx = @width / (@xmax - @xmin)
         @dy = @height / (@ymax - @ymin)
 
-        @yStart = @bottom
-        @yEnd = @top
-        @xStart = @left
+        @yStart = @top
+        @yEnd = @bottom
+        @xStart = @top
         @xEnd = @right
 
         @xSize = @width
@@ -350,7 +351,10 @@ class Morris.Grid extends Morris.EventEmitter
   #
   transY: (y) ->
     if not @options.horizontal
-      @bottom - (y - @ymin) * @dy
+      if not @options.inverted
+        @bottom - (y - @ymin) * @dy
+      else
+        @top + (y - @ymin) * @dy
     else
       @left + (y - @ymin) * @dy
   transX: (x) ->
@@ -401,9 +405,9 @@ class Morris.Grid extends Morris.EventEmitter
   # @private
   getYAxisLabelX: ->
     if @options.yLabelAlign is 'right'
-      @left - @options.padding / 2
+       @left - @options.padding / 2
     else
-      @options.padding / 2
+       @options.padding / 2
 
 
   # draw y axis labels, horizontal lines
@@ -415,7 +419,7 @@ class Morris.Grid extends Morris.EventEmitter
       basePos = @getYAxisLabelX()
     else
       basePos = @getXAxisLabelY()
-
+    #
     for lineY in @grid
       pos = @transY(lineY)
       if @options.axes in [true, 'both', 'y']

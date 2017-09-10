@@ -51,7 +51,7 @@ class Morris.Bar extends Morris.Grid
   # @private
   calcBars: ->
     for row, idx in @data
-      row._x = @xStart + @xSize * (idx + 0.5) / @data.length
+      row._x = 0 + @xSize * (idx + 0.5) / @data.length
       row._y = for y in row.y
         if y? then @transY(y) else null
 
@@ -128,7 +128,8 @@ class Morris.Bar extends Morris.Grid
   #
   # @private
   getXAxisLabelY: ->
-    @bottom + (@options.xAxisLabelTopPadding || @options.padding / 2)
+    #@bottom + (@options.xAxisLabelTopPadding || @options.padding / 2)
+    0
 
   # draw the data series
   #
