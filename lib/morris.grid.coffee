@@ -328,7 +328,7 @@ class Morris.Grid extends Morris.EventEmitter
 
         @yStart = @top
         @yEnd = @bottom
-        @xStart = @top
+        @xStart = @left
         @xEnd = @right
 
         @xSize = @width

@@ -471,7 +471,7 @@ Licensed under the BSD-2-Clause License.
           this.dy = this.height / (this.ymax - this.ymin);
           this.yStart = this.top;
           this.yEnd = this.bottom;
-          this.xStart = this.top;
+          this.xStart = this.left;
           this.xEnd = this.right;
           this.xSize = this.width;
           this.ySize = this.height;
