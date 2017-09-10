@@ -128,8 +128,10 @@ class Morris.Bar extends Morris.Grid
   #
   # @private
   getXAxisLabelY: ->
-    #@bottom + (@options.xAxisLabelTopPadding || @options.padding / 2)
-    0
+    if not @options.inverted
+       @bottom + (@options.xAxisLabelTopPadding || @options.padding / 2)
+    else
+       @options.padding / 2
 
   # draw the data series
   #

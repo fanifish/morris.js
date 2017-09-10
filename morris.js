@@ -1733,7 +1733,11 @@ Licensed under the BSD-2-Clause License.
     };
 
     Bar.prototype.getXAxisLabelY = function() {
-      return 0;
+      if (!this.options.inverted) {
+        return this.bottom + (this.options.xAxisLabelTopPadding || this.options.padding / 2);
+      } else {
+        return this.options.padding / 2;
+      }
     };
 
     Bar.prototype.drawSeries = function() {
