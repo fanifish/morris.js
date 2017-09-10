@@ -51,7 +51,7 @@ class Morris.Bar extends Morris.Grid
   # @private
   calcBars: ->
     for row, idx in @data
-      row._x = 0 + @xSize * (idx + 0.5) / @data.length
+      row._x = @xStart + @xSize * (idx + 0.5) / @data.length
       row._y = for y in row.y
         if y? then @transY(y) else null
 

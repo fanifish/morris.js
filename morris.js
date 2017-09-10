@@ -1649,7 +1649,7 @@ Licensed under the BSD-2-Clause License.
       _results = [];
       for (idx = _i = 0, _len = _ref.length; _i < _len; idx = ++_i) {
         row = _ref[idx];
-        row._x = 0 + this.xSize * (idx + 0.5) / this.data.length;
+        row._x = this.xStart + this.xSize * (idx + 0.5) / this.data.length;
         _results.push(row._y = (function() {
           var _j, _len1, _ref1, _results1;
           _ref1 = row.y;
